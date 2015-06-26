@@ -1,8 +1,20 @@
 <resources>
 
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/primaryColor</item>
+        <item name="colorPrimaryDark">@color/primaryColorDark</item>
+        <item name="colorAccent">@color/accentColor</item>
+
     </style>
 
+    <style name="AppTheme.NavActivity" parent="AppTheme">
+    </style>
+
+    <style name="AppTheme.RaisedButton" parent="Base.Widget.AppCompat.Button">
+
+        <item name="android:layout_margin">10dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="colorButtonNormal">@color/primaryColorDark</item>
+
+    </style>
 </resources>

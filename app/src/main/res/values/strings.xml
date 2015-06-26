@@ -1,6 +1,14 @@
 <resources>
-    <string name="app_name">xlrelease</string>
+    <string name="app_name">XLRelease</string>
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="nav_tasks">My Tasks</string>
+    <string name="nav_settings">Settings</string>
+
+    <string name="item_complete">Complete</string>
+    <string name="snackbar_task_completed">Task completed</string>
+
+    <string name="edit_login_placeholder">Login</string>
+    <string name="edit_password_placeholder">Password</string>
 </resources>
