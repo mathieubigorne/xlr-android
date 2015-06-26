@@ -26,9 +26,9 @@ class GetTasksRequest extends AsyncTask<Void, Void, List<Task>> {
 
     private static final String TAG = "GetTasksRequest";
 
-    private TaskAdapter tasksAdapter;
+    private TasksAdapter tasksAdapter;
 
-    public GetTasksRequest(TaskAdapter tasksAdapter) {
+    public GetTasksRequest(TasksAdapter tasksAdapter) {
         this.tasksAdapter = tasksAdapter;
     }
 
@@ -76,6 +76,8 @@ class GetTasksRequest extends AsyncTask<Void, Void, List<Task>> {
     protected void onPostExecute(List<Task> tasks) {
         Log.i(TAG, tasks.toString());
 
+        tasksAdapter.clear();
         tasksAdapter.addAll(tasks);
+        tasksAdapter.notifyDataSetChanged();
     }
 }

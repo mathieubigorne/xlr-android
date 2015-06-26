@@ -19,6 +19,12 @@ class CompleteTaskRequest extends AsyncTask<String, Void, Void> {
 
     private static final String TAG = "CompleteTaskRequest";
 
+    private TasksAdapter tasksAdapter;
+
+    public CompleteTaskRequest(TasksAdapter tasksAdapter) {
+        this.tasksAdapter = tasksAdapter;
+    }
+
     protected Void doInBackground(String...tasks) {
         String taskId = tasks[0];
         OkHttpClient client = new OkHttpClient();
@@ -57,5 +63,6 @@ class CompleteTaskRequest extends AsyncTask<String, Void, Void> {
 
     protected void onPostExecute(Void param) {
         Log.i(TAG, "Task completed");
+        new GetTasksRequest(tasksAdapter).execute();
     }
 }

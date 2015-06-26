@@ -9,9 +9,9 @@ import android.widget.TextView;
 
 import com.xebialabs.xlrelease.layout.TaskLayout;
 
-public class TaskAdapter extends ArrayAdapter<Task> {
+public class TasksAdapter extends ArrayAdapter<Task> {
 
-    public TaskAdapter(Context context) {
+    public TasksAdapter(Context context) {
         super(context, 0);
     }
 
@@ -22,8 +22,8 @@ public class TaskAdapter extends ArrayAdapter<Task> {
         // Check if an existing view is being reused, otherwise inflate the view
         if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.task_view, parent, false);
-            ((TaskLayout) convertView).setTask(task);
         }
+        ((TaskLayout) convertView).setTask(task);
         // Lookup view for data population
         TextView tvName = (TextView) convertView.findViewById(R.id.taskTitleView);
 

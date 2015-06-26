@@ -11,7 +11,7 @@ import com.xebialabs.xlrelease.layout.TaskLayout;
 
 
 public class MyTasksActivity extends Activity {
-    private static final String TAG = "MyTasksActivity";
+    private TasksAdapter tasksAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,8 +20,8 @@ public class MyTasksActivity extends Activity {
         updateUI();
     }
 
-    private void updateUI() {
-        TaskAdapter tasksAdapter = new TaskAdapter(this);
+    public void updateUI() {
+        this.tasksAdapter = new TasksAdapter(this);
         ListView listView = (ListView) findViewById(R.id.tasks_list);
         listView.setAdapter(tasksAdapter);
 
@@ -55,6 +55,6 @@ public class MyTasksActivity extends Activity {
 
         String taskId = task.getId();
 
-        new CompleteTaskRequest().execute(taskId);
+        new CompleteTaskRequest(tasksAdapter).execute(taskId);
     }
 }
