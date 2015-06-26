@@ -1,20 +1,17 @@
 package com.xebialabs.xlrelease;
 
 import android.app.Activity;
-import android.app.ListActivity;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.SimpleCursorAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
 public class MyTasksActivity extends Activity {
+    private static final String TAG = "MyTasksActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +28,8 @@ public class MyTasksActivity extends Activity {
         TaskAdapter tasksAdapter = new TaskAdapter(this, myTasks);
         ListView listView = (ListView) findViewById(R.id.tasks_list);
         listView.setAdapter(tasksAdapter);
+
+        new Requests().execute("test");
     }
 
     @Override
