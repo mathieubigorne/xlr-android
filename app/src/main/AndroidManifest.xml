@@ -19,7 +19,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".MyTasksActivity" android:label="Register New Account"></activity>
+        <activity android:name=".MyTasksActivity" android:label="My tasks"/>
     </application>
 
 </manifest>
