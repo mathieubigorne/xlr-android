@@ -7,14 +7,10 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import java.util.List;
-
 public class TaskAdapter extends ArrayAdapter<Task> {
-    private List<Task> tasks;
 
-    public TaskAdapter(Context context, List<Task> tasks) {
-        super(context, 0, tasks);
-        this.tasks = tasks;
+    public TaskAdapter(Context context) {
+        super(context, 0);
     }
 
     @Override

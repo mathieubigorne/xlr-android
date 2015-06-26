@@ -21,15 +21,11 @@ public class MyTasksActivity extends Activity {
     }
 
     private void updateUI() {
-        List<Task> myTasks = new ArrayList<Task>() {{
-            add(new Task("Do it !"));
-        }};
-
-        TaskAdapter tasksAdapter = new TaskAdapter(this, myTasks);
+        TaskAdapter tasksAdapter = new TaskAdapter(this);
         ListView listView = (ListView) findViewById(R.id.tasks_list);
         listView.setAdapter(tasksAdapter);
 
-        new Requests().execute("test");
+        new Requests(tasksAdapter).execute("test");
     }
 
     @Override
