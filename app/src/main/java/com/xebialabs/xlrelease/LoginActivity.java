@@ -52,6 +52,8 @@ public class LoginActivity extends Activity {
                 Log.i(TAG, "isAuthenticated ? " + isAuthenticated);
 
                 if (isAuthenticated) {
+                    XlReleaseCredentials.INSTANCE.setLogin(login);
+                    XlReleaseCredentials.INSTANCE.setPassword(password);
                     Intent intent = new Intent(getApplicationContext(), MyTasksActivity.class);
                     startActivity(intent);
                 } else {

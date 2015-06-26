@@ -38,7 +38,7 @@ class GetTasksRequest extends AsyncTask<Void, Void, List<Task>> {
 
             @Override
             public Request authenticate(Proxy proxy, Response response) throws IOException {
-                String credential = Credentials.basic("flegall", "techrally");
+                String credential = Credentials.basic(XlReleaseCredentials.INSTANCE.getLogin(), XlReleaseCredentials.INSTANCE.getPassword());
                 return response.request().newBuilder()
                         .header("Authorization", credential)
                         .build();
