@@ -21,18 +21,18 @@ import java.util.List;
 
 import static com.google.common.collect.Lists.newArrayList;
 
-class Requests extends AsyncTask<String, Void, List<Task>> {
+class GetTasksRequest extends AsyncTask<Void, Void, List<Task>> {
     public static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
 
-    private static final String TAG = "Requests";
+    private static final String TAG = "GetTasksRequest";
 
     private TaskAdapter tasksAdapter;
 
-    public Requests(TaskAdapter tasksAdapter) {
+    public GetTasksRequest(TaskAdapter tasksAdapter) {
         this.tasksAdapter = tasksAdapter;
     }
 
-    protected List<Task> doInBackground(String... urls) {
+    protected List<Task> doInBackground(Void... params) {
         OkHttpClient client = new OkHttpClient();
         client.setAuthenticator(new Authenticator() {
 

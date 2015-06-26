@@ -4,10 +4,10 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ListView;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.xebialabs.xlrelease.layout.TaskLayout;
 
 
 public class MyTasksActivity extends Activity {
@@ -25,7 +25,7 @@ public class MyTasksActivity extends Activity {
         ListView listView = (ListView) findViewById(R.id.tasks_list);
         listView.setAdapter(tasksAdapter);
 
-        new Requests(tasksAdapter).execute("test");
+        new GetTasksRequest(tasksAdapter).execute();
     }
 
     @Override
@@ -48,5 +48,13 @@ public class MyTasksActivity extends Activity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void onCompleteButtonClick(View view) {
+        Task task = ((TaskLayout) view.getParent()).getTask();
+
+        String taskId = task.getId();
+
+        new CompleteTaskRequest().execute(taskId);
     }
 }
