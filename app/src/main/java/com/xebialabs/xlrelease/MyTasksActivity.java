@@ -1,10 +1,13 @@
 package com.xebialabs.xlrelease;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ListView;
 
 import com.xebialabs.xlrelease.layout.TaskLayout;
@@ -52,9 +55,24 @@ public class MyTasksActivity extends Activity {
 
     public void onCompleteButtonClick(View view) {
         Task task = ((TaskLayout) view.getParent()).getTask();
+        final String taskId = task.getId();
 
-        String taskId = task.getId();
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Add a comment");
+        final EditText inputField = new EditText(this);
+        builder.setView(inputField);
+        builder.setPositiveButton("Complete",
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        String comment = inputField.getText().toString();
 
-        new CompleteTaskRequest(tasksAdapter).execute(taskId);
+                        new CompleteTaskRequest(tasksAdapter, comment).execute(taskId);
+                    }
+                });
+
+        builder.setNegativeButton("Cancel", null);
+
+        builder.create().show();
     }
 }

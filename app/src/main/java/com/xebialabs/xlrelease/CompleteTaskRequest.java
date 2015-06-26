@@ -20,9 +20,11 @@ class CompleteTaskRequest extends AsyncTask<String, Void, Void> {
     private static final String TAG = "CompleteTaskRequest";
 
     private TasksAdapter tasksAdapter;
+    private String comment;
 
-    public CompleteTaskRequest(TasksAdapter tasksAdapter) {
+    public CompleteTaskRequest(TasksAdapter tasksAdapter, String comment) {
         this.tasksAdapter = tasksAdapter;
+        this.comment = comment;
     }
 
     protected Void doInBackground(String...tasks) {
@@ -45,7 +47,7 @@ class CompleteTaskRequest extends AsyncTask<String, Void, Void> {
         });
 
 
-        RequestBody body = RequestBody.create(JSON, "{\"text\": \"OK\"}");
+        RequestBody body = RequestBody.create(JSON, "{\"text\": \"" + comment + "\"}");
         Request request = new Request.Builder()
                 .url("https://dexter.xebialabs.com/xlrelease/tasks/" + taskId + "/complete")
                 .post(body)
