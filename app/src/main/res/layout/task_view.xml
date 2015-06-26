@@ -2,7 +2,16 @@
 <com.xebialabs.xlrelease.layout.TaskLayout
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="#ffffffff">
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/people"
+        android:paddingTop="13dp"
+        android:paddingLeft="5dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -15,7 +24,8 @@
         android:textSize="20dp"
         android:layout_toLeftOf="@+id/completeButton"
         android:layout_alignBottom="@+id/completeButton"
-        android:gravity="center_vertical" />
+        android:gravity="center_vertical"
+        android:paddingLeft="30dp" />
 
     <Button
         android:layout_width="wrap_content"
